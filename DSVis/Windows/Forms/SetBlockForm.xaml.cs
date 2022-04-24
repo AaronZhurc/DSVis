@@ -29,15 +29,22 @@ namespace DSVis.Windows.Forms {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            try {
-                string[] text = Regex.Split(textBox.Text, "[^0-9]+");
-                foreach (String t in text) {
-                    array.Add(Convert.ToInt32(t));
+            string[] text = Regex.Split(textBox.Text, "[^0-9]+");
+            foreach (String t in text) {
+                int n;
+                if (!Int32.TryParse(t, out n)) {
+                    if (t == "") {
+                        continue;
+                    }
+                } else {
+                    array.Add(n);
                 }
+            }
+            if (array.Count == 0) {
+                MessageBox.Show("请检查输入的数组");
+            } else {
                 sendMessage(array);
                 this.Close();
-            } catch {
-                System.Windows.MessageBox.Show("请检测输入的数列是否正确");
             }
         }
 

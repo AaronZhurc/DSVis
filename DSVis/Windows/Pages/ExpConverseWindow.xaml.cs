@@ -61,6 +61,7 @@ namespace DSVis.Windows.Pages {
             dataConfirm();
             stackTrans.Clear();
             m_suffix = "";
+            textResult.Text = "";
             m_count = 0;
             m_countDraw = 0;
             m_infix = value;
@@ -146,7 +147,7 @@ namespace DSVis.Windows.Pages {
                     }
                     m_count++;
                 } else {
-                    textResult.Text += stackCalcu.Peek();
+                    textResult.Text = stackCalcu.Peek().ToString();
                     m_flagCtrl = 3;
                 }
                 Run rs0 = textSuffix.Inlines.FirstInline as Run;
@@ -261,6 +262,8 @@ namespace DSVis.Windows.Pages {
                     MainCanvas.Children.Add(text);
                 }
                 m_countDraw = stackCalcu.Count;
+            } else {
+                m_countDraw = 0;
             }
         }
         public void Filesave() {

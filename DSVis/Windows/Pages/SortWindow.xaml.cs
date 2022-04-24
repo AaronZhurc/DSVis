@@ -138,14 +138,18 @@ namespace DSVis.Windows.Pages {
                     radiobtnMerge.IsEnabled = false;
                     btnSet.IsEnabled = false;
                     btnGap.IsEnabled = false;
-                    if (m_countGap < gap[m_countSort]) {
-                        array.ShellSort(gap[m_countSort], m_countGap);
-                        Clear();
-                        Draw();
-                        m_countGap++;
-                        if (m_countGap == gap[m_countSort]) {
-                            m_countGap = 0;
-                            m_countSort++;
+                    if (gap.Count == 0) {
+                        MessageBox.Show("请先设置步长");
+                    } else {
+                        if (m_countGap < gap[m_countSort]) {
+                            array.ShellSort(gap[m_countSort], m_countGap);
+                            Clear();
+                            Draw();
+                            m_countGap++;
+                            if (m_countGap == gap[m_countSort]) {
+                                m_countGap = 0;
+                                m_countSort++;
+                            }
                         }
                     }
                 } else if (radiobtnQuick.IsChecked == true) {

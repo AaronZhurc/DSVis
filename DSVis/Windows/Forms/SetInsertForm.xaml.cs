@@ -31,7 +31,7 @@ namespace DSVis.Windows.Forms {
         private void Button_Click(object sender, RoutedEventArgs e) {
             try {
                 if (Convert.ToInt32(textBox_posi.Text) <= 0) {
-                    throw new Exception("请检测输入是否正确");
+                    throw new Exception();
                 } else {
                     if (radioBtnDir.IsChecked == true) {
                         mode = 0;
@@ -42,7 +42,7 @@ namespace DSVis.Windows.Forms {
                     this.Close();
                 }
             } catch {
-                System.Windows.MessageBox.Show("请检测输入的数字是否正确");
+                MessageBox.Show("请检测输入的数字是否正确");
             }
         }
 

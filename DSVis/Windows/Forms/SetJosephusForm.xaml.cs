@@ -30,13 +30,13 @@ namespace DSVis.Windows.Forms {
         private void Button_Click(object sender, RoutedEventArgs e) {
             try {
                 if (Convert.ToInt32(textBoxStart.Text) > Convert.ToInt32(textBoxNum.Text) || Convert.ToInt32(textBoxGap.Text) > Convert.ToInt32(textBoxNum.Text) || Convert.ToInt32(textBoxNum.Text) <= 0 || Convert.ToInt32(textBoxStart.Text) < 0 || Convert.ToInt32(textBoxGap.Text) <= 0) {
-                    throw new Exception("请检测输入是否正确");
+                    throw new Exception();
                 } else {
                     sendMessage(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxStart.Text), Convert.ToInt32(textBoxGap.Text));
                     this.Close();
                 }
             } catch {
-                System.Windows.MessageBox.Show("请检测输入是否正确");
+                MessageBox.Show("请检测输入是否正确");
             }
         }
         private void MainWindow_Closed(object sender, EventArgs e) {

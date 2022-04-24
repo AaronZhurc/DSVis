@@ -34,7 +34,7 @@ namespace DSVis.Windows.Forms {
                     MessageBox.Show("请检测输入的表达式是否正确");
                 }
             } catch {
-                System.Windows.MessageBox.Show("请检测输入的表达式是否正确");
+                MessageBox.Show("请检测输入的表达式是否正确");
             }
         }
         private void MainWindow_Closed(object sender, EventArgs e) {
