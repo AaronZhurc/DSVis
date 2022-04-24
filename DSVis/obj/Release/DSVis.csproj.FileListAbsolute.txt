@@ -1,0 +1,9 @@
+D:\zrc12\source\DSVis\DSVis\obj\Release\SubWindow\GraphTraWindow.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\MainWindow.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\SubWindow\SetWeightForm.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\SubWindow\MCSTWindow.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\SubWindow\SPath.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\App.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\zrc12\source\DSVis\DSVis\obj\Release\DSVis_MarkupCompile.cache
+D:\zrc12\source\DSVis\DSVis\obj\Release\DSVis_MarkupCompile.lref
