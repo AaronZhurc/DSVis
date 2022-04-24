@@ -23,7 +23,7 @@ namespace DSVis.Windows.Pages {
     /// JosephusWindow.xaml 的交互逻辑
     /// </summary>
     public partial class JosephusWindow : Page {
-        int m_num, m_start, m_gap;
+        int m_num, m_start, m_gap, maxCircle15, maxCircle17;
         Circular list = null;
         List<int> result = new List<int>();
         int m_count;
@@ -35,6 +35,14 @@ namespace DSVis.Windows.Pages {
             InitializeComponent();
             this.Height = MainWindowInfo.mainPageHeight;
             this.Width = MainWindowInfo.mainPageWidth;
+            double R;
+            if(this.Height<= this.Width - 170) {
+                R = this.Height / 2;
+            } else {
+                R = (this.Width - 170) / 2;
+            }
+            maxCircle15 = (int)(Math.PI / Math.Asin(17 / R));
+            maxCircle17 = (int)(Math.PI / Math.Asin(17 / R));
             if (MainWindowInfo.fileFlag == true) {
                 this.IsEnabled = true;
             } else {
@@ -42,16 +50,26 @@ namespace DSVis.Windows.Pages {
                 form.Show();
                 form.sendMessage = Recevie;
                 form.windowClosed = FormClosed;
+                form.getMaxCircle(maxCircle15);
                 this.IsEnabled = false;
             }
             textOut.Text = "清除出去的编号\n";
         }
 
         private void btnSet_Click(object sender, RoutedEventArgs e) {
+            double R;
+            if (this.Height <= this.Width - 170) {
+                R = this.Height / 2;
+            } else {
+                R = (this.Width - 170) / 2;
+            }
+            maxCircle15 = (int)(Math.PI / Math.Asin(15 / R));
+            maxCircle17 = (int)(Math.PI / Math.Asin(17 / R));
             SetJosephusForm form = new SetJosephusForm();
             form.Show();
             form.sendMessage = Recevie;
             form.windowClosed = FormClosed;
+            form.getMaxCircle(maxCircle15);
             this.IsEnabled = false;
         }
 
@@ -104,32 +122,52 @@ namespace DSVis.Windows.Pages {
         }
 
         public void windowchanged() {
+            double R;
+            if (this.Height <= this.Width - 170) {
+                R = this.Height / 2;
+            } else {
+                R = (this.Width - 170) / 2;
+            }
+            maxCircle15 = (int)(Math.PI / Math.Asin(15 / R));
+            maxCircle17 = (int)(Math.PI / Math.Asin(17 / R));
             this.Height = MainWindowInfo.mainPageHeight;
             this.Width = MainWindowInfo.mainPageWidth;
             CtrlBg.Height = this.Height;
             MainCanvas.Height = this.Height;
             MainCanvas.Width = this.Width - 170;
             double t = 2 * Math.PI / m_num;
+            double r;
+            if (m_num >= maxCircle17) {
+                r = 15 / Math.Sin(t / 2);
+            } else {
+                r = 17 / Math.Sin(t / 2);
+            }
             for (int i = 0; i < m_num; i++) {
                 Ellipse ellipse = this.FindName("v" + i) as Ellipse;
-                ellipse.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * 150 - 15);
-                ellipse.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * 150 - 15);
+                ellipse.SetValue(Canvas.LeftProperty, MainCanvas.Width / 2 - Math.Sin(-t * i) * r - 15);
+                ellipse.SetValue(Canvas.TopProperty, MainCanvas.Height / 2 - Math.Cos(-t * i) * r - 15);
                 TextBlock text = this.FindName("t" + i) as TextBlock;
                 Size sizeText = text.DesiredSize;
-                text.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * 150 - sizeText.Width / 2);
-                text.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * 150 - sizeText.Height / 2);
+                text.SetValue(Canvas.LeftProperty, MainCanvas.Width / 2 - Math.Sin(-t * i) * r - sizeText.Width / 2);
+                text.SetValue(Canvas.TopProperty, MainCanvas.Height / 2 - Math.Cos(-t * i) * r - sizeText.Height / 2);
             }
         }
 
         public void DrawCir() {
             double t = 2 * Math.PI / m_num;
+            double r;
+            if (m_num >= maxCircle17) {
+                r = 15 / Math.Sin(t / 2);
+            } else {
+                r = 17 / Math.Sin(t / 2);
+            }
             for(int i = 0; i < m_num; i++) {
                 Ellipse ellipse = new Ellipse();
                 ellipse.Width = 30;
                 ellipse.Height = 30;
                 ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                ellipse.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * 150 - 15);
-                ellipse.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * 150 - 15);
+                ellipse.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * r - 15);
+                ellipse.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * r - 15);
                 ellipse.Name = "v" + i.ToString();
                 this.RegisterName("v" + i, ellipse);
                 TextBlock text = new TextBlock();
@@ -140,11 +178,12 @@ namespace DSVis.Windows.Pages {
                 }
                 text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 Size sizeText = text.DesiredSize;
-                text.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * 150 - sizeText.Width / 2);
-                text.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * 150 - sizeText.Height / 2);
+                text.SetValue(Canvas.LeftProperty, MainCanvas.ActualWidth / 2 - Math.Sin(-t * i) * r - sizeText.Width / 2);
+                text.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - Math.Cos(-t * i) * r - sizeText.Height / 2);
                 text.HorizontalAlignment = HorizontalAlignment.Center;
                 text.VerticalAlignment = VerticalAlignment.Center;
                 text.TextAlignment = TextAlignment.Center;
+                text.Name = "t" + i.ToString();
                 this.RegisterName("t" + i, text);
                 MainCanvas.Children.Add(ellipse);
                 MainCanvas.Children.Add(text);

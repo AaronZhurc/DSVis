@@ -22,9 +22,14 @@ namespace DSVis.Windows.Forms {
         public SendMessage sendMessage;
         public delegate void WindowClosed();
         public WindowClosed windowClosed;
+        private int maxCircle;
         public SetJosephusForm() {
             InitializeComponent();
             textBoxNum.Focus();
+        }
+
+        public void getMaxCircle(int max) {
+            maxCircle = max;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
@@ -32,11 +37,23 @@ namespace DSVis.Windows.Forms {
                 if (Convert.ToInt32(textBoxStart.Text) > Convert.ToInt32(textBoxNum.Text) || Convert.ToInt32(textBoxGap.Text) > Convert.ToInt32(textBoxNum.Text) || Convert.ToInt32(textBoxNum.Text) <= 0 || Convert.ToInt32(textBoxStart.Text) < 0 || Convert.ToInt32(textBoxGap.Text) <= 0) {
                     throw new Exception();
                 } else {
-                    sendMessage(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxStart.Text), Convert.ToInt32(textBoxGap.Text));
-                    this.Close();
+                    if (Convert.ToInt32(textBoxNum.Text) > maxCircle) {
+                        MessageBoxResult result = System.Windows.MessageBox.Show("当前设置的数目过大，是否继续", "", MessageBoxButton.OKCancel);
+                        switch (result) {
+                            case MessageBoxResult.OK:
+                                sendMessage(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxStart.Text), Convert.ToInt32(textBoxGap.Text));
+                                this.Close();
+                                break;
+                            case MessageBoxResult.Cancel:
+                                break;
+                        }
+                    } else {
+                        sendMessage(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxStart.Text), Convert.ToInt32(textBoxGap.Text));
+                        this.Close();
+                    }
                 }
             } catch {
-                MessageBox.Show("请检测输入是否正确");
+                System.Windows.Forms.MessageBox.Show("请检测输入是否正确");
             }
         }
         private void MainWindow_Closed(object sender, EventArgs e) {

@@ -13,8 +13,8 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0" Background="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="170" Name="CtrlBg" Panel.ZIndex="100">
             <Button Content="设置" HorizontalAlignment="Left" Height="34" Margin="17,26,0,0" VerticalAlignment="Top" Width="135" Name="btnSet" Click="btnSet_Click"/>
-            <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="54,128,0,0" VerticalAlignment="Top" Width="59" Name="btnNext" IsEnabled="False" Click="btnNext_Click"/>
-            <TextBlock HorizontalAlignment="Left" Height="37" Margin="17,77,0,0" TextWrapping="Wrap" Text="清除出去的编号" VerticalAlignment="Top" Width="134" Name="textOut"/>
+            <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="54,164,0,0" VerticalAlignment="Top" Width="59" Name="btnNext" IsEnabled="False" Click="btnNext_Click"/>
+            <TextBlock HorizontalAlignment="Left" Height="76" Margin="17,83,0,0" TextWrapping="Wrap" Text="清除出去的编号" VerticalAlignment="Top" Width="134" Name="textOut"/>
         </Grid>
         <Canvas Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="MainCanvas" Background="White"/>
     </Grid>
