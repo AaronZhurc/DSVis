@@ -30,16 +30,15 @@ namespace DSVis.Windows.Forms {
 
         private void Button_Click(object sender, RoutedEventArgs e) {
             try {
-                if (!Char.IsDigit(textBox.Text[textBox.Text.Length - 1])) {
-                    textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-                }
                 string[] text = Regex.Split(textBox.Text, "[^0-9]+");
                 foreach (String t in text) {
-                    if (Convert.ToInt32(t) > length) {
-                        throw new Exception();
-                    }
-                    if (!array.Contains(Convert.ToInt32(t))) {
-                        array.Add(Convert.ToInt32(t));
+                    int n;
+                    if (!Int32.TryParse(t, out n)) {
+                        if (t == "") {
+                            continue;
+                        }
+                    } else {
+                        array.Add(n);
                     }
                 }
                 if (!array.Contains(1)) {

@@ -26,14 +26,10 @@ namespace DSVis.Windows.Forms {
             textBox.Focus();
         }
         private void Button_Click(object sender, RoutedEventArgs e) {
-            try {
-                if (textBox.Text != null && textBox.Text != "") {
-                    sendMessage(textBox.Text);
-                    this.Close();
-                } else {
-                    MessageBox.Show("请检测输入的表达式是否正确");
-                }
-            } catch {
+            if (textBox.Text != null && textBox.Text != "") {
+                sendMessage(textBox.Text);
+                this.Close();
+            } else {
                 MessageBox.Show("请检测输入的表达式是否正确");
             }
         }

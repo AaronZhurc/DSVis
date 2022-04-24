@@ -9,9 +9,9 @@
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="106,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxNum" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="textBoxNum_PreviewTextInput"/>
         <Label Content="结点数" HorizontalAlignment="Left" Height="30" Margin="28,15,0,0" VerticalAlignment="Top" Width="46"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxStart" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxStart_PreviewTextInput"/>
+        <TextBox  InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxStart" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxStart_PreviewTextInput"/>
         <Label Content="起始结点" HorizontalAlignment="Left" Height="30" Margin="28,59,0,0" VerticalAlignment="Top" Width="60"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="106,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxGap" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxGap_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="106,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxGap" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxGap_PreviewTextInput"/>
         <Label Content="步长" HorizontalAlignment="Left" Height="30" Margin="28,100,0,0" VerticalAlignment="Top" Width="46"/>
         <Button Content="确认" Margin="102,147,101.333,0" Click="Button_Click" IsDefault="True" Height="30" VerticalAlignment="Top"/>
     </Grid>

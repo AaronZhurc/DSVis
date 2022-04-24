@@ -9,7 +9,7 @@
     <Grid>
         <Button Content="确认" HorizontalAlignment="Left" Height="30" Margin="182,40,0,0" VerticalAlignment="Top" Width="70
                 " Click="Button_Click" IsDefault="True"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="28,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="Textbox_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="28,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="Textbox_PreviewTextInput"/>
 
     </Grid>
 </Window>

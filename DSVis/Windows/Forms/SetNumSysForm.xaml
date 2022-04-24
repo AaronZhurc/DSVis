@@ -9,7 +9,7 @@
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="106,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxNum" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="textBoxNum_PreviewTextInput"/>
         <Label Content="转换数字" HorizontalAlignment="Left" Height="30" Margin="28,15,0,0" VerticalAlignment="Top" Width="46"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxSys" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxSys_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxSys" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxSys_PreviewTextInput"/>
         <Label Content="转换进制" HorizontalAlignment="Left" Height="30" Margin="28,59,0,0" VerticalAlignment="Top" Width="60"/>
         <Button Content="确认" Margin="102,101,101.667,0" Click="Button_Click" IsDefault="True" Height="30" VerticalAlignment="Top"/>
 

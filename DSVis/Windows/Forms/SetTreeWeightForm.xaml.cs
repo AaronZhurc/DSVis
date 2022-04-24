@@ -31,18 +31,22 @@ namespace DSVis.Windows.Forms {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            try {
-                if (!Char.IsDigit(textBox.Text[textBox.Text.Length - 1])) {
-                    textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
+            string[] text = Regex.Split(textBox.Text, "[^0-9]+");
+            foreach (String t in text) {
+                int n;
+                if (!Int32.TryParse(t, out n)) {
+                    if (t == "") {
+                        continue;
+                    }
+                } else {
+                    weights.Add(n);
                 }
-                string[] text = Regex.Split(textBox.Text, "[^0-9]+");
-                foreach (String t in text) {
-                    weights.Add(Convert.ToInt32(t));
-                }
+            }
+            if (weights.Count == 0) {
+                MessageBox.Show("请检查输入的数组");
+            } else {
                 sendMessage(weights);
                 this.Close();
-            } catch {
-                System.Windows.MessageBox.Show("请检测输入的权值是否正确");
             }
         }
 

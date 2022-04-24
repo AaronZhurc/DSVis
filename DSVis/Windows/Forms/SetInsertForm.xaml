@@ -9,8 +9,8 @@
     <Grid>
         <Button Content="确认" HorizontalAlignment="Left" Height="30" Margin="101,149,0,0" VerticalAlignment="Top" Width="70
                 " Click="Button_Click" IsDefault="True"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="87,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox_value" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_value_PreviewTextInput"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="87,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox_posi" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_posi_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="87,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox_value" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_value_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="87,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox_posi" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_posi_PreviewTextInput"/>
         <Label Content="数值" HorizontalAlignment="Left" Height="30" Margin="36,18,0,0" VerticalAlignment="Top" Width="46"/>
         <Label Content="位置" HorizontalAlignment="Left" Height="30" Margin="36,60,0,0" VerticalAlignment="Top" Width="46"/>
         <RadioButton Content="演示插入过程" Name="radioBtnStep" HorizontalAlignment="Left" Margin="135,125,0,0" VerticalAlignment="Top" GroupName="radioBtnMode"/>

@@ -9,7 +9,7 @@
     <Grid Margin="0,0,-0.333,-28">
         <Button Content="确认" HorizontalAlignment="Left" Height="30" Margin="100,140,0,0" VerticalAlignment="Top" Width="70
                 " Click="Button_Click" IsDefault="True"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="87,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_PreviewTextInput"/>
+        <TextBox InputMethod.IsInputMethodEnabled="False" HorizontalAlignment="Left" Height="30" Margin="87,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139" Name="textBox" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBox_PreviewTextInput"/>
         <Label Content="位置" HorizontalAlignment="Left" Height="30" Margin="43,23,0,0" VerticalAlignment="Top" Width="46"/>
         <RadioButton Content="演示删除过程" Name="radioBtnStep" HorizontalAlignment="Left" Margin="135,120,0,0" VerticalAlignment="Top" GroupName="radioBtnMode"/>
         <RadioButton Content="直接删除" Name="radioBtnDir" HorizontalAlignment="Left" Margin="43,120,0,0" VerticalAlignment="Top" GroupName="radioBtnMode" IsChecked="True"/>
