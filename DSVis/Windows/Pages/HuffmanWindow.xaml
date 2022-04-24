@@ -1,0 +1,21 @@
+﻿<Page x:Class="DSVis.Windows.Pages.HuffmanWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSVis.Windows.Pages"
+        mc:Ignorable="d"
+         Height="424" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="170" Name="CtrlBg" Panel.ZIndex="100">
+            <Button Content="设置权值" HorizontalAlignment="Left" Height="34" Margin="17,26,0,0" VerticalAlignment="Top" Width="135" Name="btnSetWeight" Click="btnSetWeight_Click"/>
+            <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="54,128,0,0" VerticalAlignment="Top" Width="59" Name="btnNext" IsEnabled="False" Click="btnNext_Click"/>
+            <TextBlock HorizontalAlignment="Left" Height="37" Margin="17,77,0,0" TextWrapping="Wrap" Text="叶子节点权值" VerticalAlignment="Top" Width="134" Name="textWeight"/>
+        </Grid>
+        <Canvas Grid.Column="1" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Name="MainCanvas" Background="White"/>
+    </Grid>
+</Page>

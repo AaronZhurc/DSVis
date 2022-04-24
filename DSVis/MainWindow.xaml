@@ -1,0 +1,53 @@
+﻿<Window x:Name="window" x:Class="DSVis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSVis"
+        mc:Ignorable="d"
+        Title="数据结构可视化虚拟实验系统" Height="450" Width="800" Background="White" SizeChanged="MainWindow_Resize">
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" Name="MainMenu">
+            <MenuItem Header="文件">
+                <MenuItem Header="打开" Name="OpenFile" Click="OpenFile_Click"/>
+                <MenuItem Header="保存" Name="SaveFile" Click="SaveFile_Click"/>
+            </MenuItem>
+            <MenuItem Header="线性结构">
+                <MenuItem Header="基本操作" Name="LinearBasic" Click="LinearBasic_Click"/>
+                <MenuItem Header="约瑟夫问题" Name="Josephus" Click="Josephus_Click"/>
+                <MenuItem Header="KMP算法" Name="KMP" Click="KMP_Click"/>
+                <MenuItem Header="后缀表达式转换和计算" Name="ExpConverse" Click="ExpConverse_Click"/>
+                <MenuItem Header="进制转换" Name="NumConver" Click="NumConver_Click"/>
+                <MenuItem Header="迷宫问题" Name="Labyrinth" Click="Labyrinth_Click"/>
+            </MenuItem>
+            <MenuItem Header="树">
+                <MenuItem Header="二叉树遍历" Name="TreeTra" Click="TreeTra_Click"/>
+                <MenuItem Header="哈夫曼树" Name="Huffman" Click="Huffman_Click"/>
+            </MenuItem>
+            <MenuItem Header="图">
+                <MenuItem Header="图的遍历" Name="GraphTra" Click="GraphTra_Click"/>
+                <MenuItem Header="最小生成树" Name="MCST" Click="MCST_Click"/>
+                <MenuItem Header="最短路径" Name="SPath" Click="SPath_Click"/>
+                <MenuItem Header="拓扑排序" Name="TopoSort" Click="TopoSort_Click"/>
+                <MenuItem Header="关键路径" Name="CriticalPath" Click="CriticalPath_Click"/>
+            </MenuItem>
+            <MenuItem Header="排序和查找">
+                <MenuItem Header="冒泡/选择/插入/希尔/快速/二路归并排序" Name="Sort" Click="Sort_Click"/>
+                <MenuItem Header="二分/分块查找" Name="Search" Click="Search_Click"/>
+                <MenuItem Header="二叉排序/平衡树" Name="BST" Click="BST_Click"/>
+                <MenuItem Header="堆排序" Name="HeapSort" Click="HeapSort_Click"/>
+            </MenuItem>
+            <!--<MenuItem Header="帮助">
+                <MenuItem Header="获取帮助"/>
+                <MenuItem Header="制作信息"/>
+            </MenuItem>-->
+        </Menu>
+        <Canvas Grid.Column="0" Grid.Row="1" Name="MainCanvas" Background="White" MouseDown="CanvasMouseDown">
+            <ContentControl Name="MainPage" Width="{Binding ActualWidth, ElementName=MainCanvas, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=MainCanvas, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
+        </Canvas>
+    </Grid>
+</Window>

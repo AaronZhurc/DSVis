@@ -1,0 +1,116 @@
+﻿<Page x:Class="DSVis.Windows.Pages.NumConverWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DSVis.Windows.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NumConverWindow">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="170" x:Name="CtrlBg" Panel.ZIndex="100">
+            <Button Content="设置" HorizontalAlignment="Left" Height="34" Margin="17,26,0,0" VerticalAlignment="Top" Width="135" x:Name="btnSet" Click="btnSet_Click"/>
+            <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="54,134,0,0" VerticalAlignment="Top" Width="59" x:Name="btnNext" Click="btnNext_Click"/>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="10,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="转换数"/>
+                        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                            <TextBlock Name="textNum"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="转换进制"/>
+                        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                            <TextBlock Name="textSys"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0" Margin="10,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="被除数"/>
+                        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                            <TextBlock Name="textDividend"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="商"/>
+                        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                            <TextBlock Name="textQuotus"/>
+                        </Viewbox>
+                    </Grid>
+                    <Grid Grid.Column="2" Margin="10,10,10,10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="余数"/>
+                        <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                            <TextBlock Name="textRemainder"/>
+                        </Viewbox>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2" Margin="10,10,10,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="转换结果"/>
+                    <Viewbox Grid.Row="1" HorizontalAlignment="Left">
+                        <TextBlock Name="textResult"/>
+                    </Viewbox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="White" Margin="0,10,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="栈" Height="20" HorizontalAlignment="Center"/>
+                <Canvas Grid.Row="1" x:Name="MainCanvas" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Background="#FFF4F4F5"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

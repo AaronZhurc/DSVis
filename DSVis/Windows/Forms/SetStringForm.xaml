@@ -1,0 +1,17 @@
+﻿<Window x:Class="DSVis.Windows.Forms.SetStringForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSVis.Windows.Forms"
+        mc:Ignorable="d"
+        Title="SetStringForm" Height="200.666" Width="315.556" Topmost="True" Closed="MainWindow_Closed" ResizeMode="NoResize">
+    <Grid>
+        <Button Content="确认" HorizontalAlignment="Left" Height="30" Margin="119,119,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click" IsDefault="True"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="87,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" x:Name="textBox_mainStr" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="87,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" x:Name="textBox_pattenStr" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center"/>
+        <Label Content="主串" HorizontalAlignment="Left" Height="30" Margin="36,21,0,0" VerticalAlignment="Top" Width="46"/>
+        <Label Content="模式串" HorizontalAlignment="Left" Height="30" Margin="36,73,0,0" VerticalAlignment="Top" Width="46"/>
+
+    </Grid>
+</Window>

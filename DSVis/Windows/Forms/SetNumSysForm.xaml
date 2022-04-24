@@ -1,0 +1,17 @@
+﻿<Window x:Class="DSVis.Windows.Forms.SetNumSysForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSVis.Windows.Forms"
+        mc:Ignorable="d"
+        Title="SetNumSysForm" Height="176.644" Width="280" Topmost="True" Closed="MainWindow_Closed" ResizeMode="NoResize">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="106,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxNum" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="textBoxNum_PreviewTextInput"/>
+        <Label Content="转换数字" HorizontalAlignment="Left" Height="30" Margin="28,15,0,0" VerticalAlignment="Top" Width="46"/>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="106,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxSys" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" PreviewTextInput="textBoxSys_PreviewTextInput"/>
+        <Label Content="转换进制" HorizontalAlignment="Left" Height="30" Margin="28,59,0,0" VerticalAlignment="Top" Width="60"/>
+        <Button Content="确认" Margin="102,101,101.667,0" Click="Button_Click" IsDefault="True" Height="30" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

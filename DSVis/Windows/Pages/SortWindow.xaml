@@ -1,0 +1,32 @@
+﻿<Page x:Class="DSVis.Windows.Pages.SortWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSVis.Windows.Pages"
+        mc:Ignorable="d"
+        Title="SortWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="170"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="170" Name="CtrlBg" Panel.ZIndex="100">
+
+            <Button Content="设置" HorizontalAlignment="Left" Height="34" Margin="17,26,0,0" VerticalAlignment="Top" Width="135" Name="btnSet" Click="btnSet_Click"/>
+            <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="55,290,0,0" VerticalAlignment="Top" Width="59" Name="btnNext" IsEnabled="False" Click="btnNext_Click"/>
+            <TextBlock HorizontalAlignment="Left" Height="37" Margin="17,113,0,0" TextWrapping="Wrap" Text="原数组" VerticalAlignment="Top" Width="134" Name="textOut_origin"/>
+            <TextBlock HorizontalAlignment="Left" Height="37" Margin="18,155,0,0" TextWrapping="Wrap" Text="排序结果" VerticalAlignment="Top" Width="134" Name="textOut_result"/>
+            <RadioButton Content="冒泡" HorizontalAlignment="Left" Height="14" Margin="23,202,0,0" VerticalAlignment="Top" Width="50" GroupName="radiobtnWay" Name="radiobtnBub" IsEnabled="False" Checked="radiobtnBub_Checked"/>
+            <RadioButton Content="选择" HorizontalAlignment="Left" Height="14" Margin="78,202,0,0" VerticalAlignment="Top" Width="49" GroupName="radiobtnWay" Name="radiobtnSel" IsEnabled="False" Checked="radiobtnSel_Checked"/>
+            <RadioButton Content="插入" HorizontalAlignment="Left" Height="14" Margin="23,230,0,0" VerticalAlignment="Top" Width="50" GroupName="radiobtnWay" Name="radiobtnIns" IsEnabled="False" Checked="radiobtnIns_Checked"/>
+            <Button Content="步长" HorizontalAlignment="Left" Height="34" Margin="17,70,0,0" VerticalAlignment="Top" Width="60" Name="btnGap" IsEnabled="False" Click="btnGap_Click"/>
+            <Button Content="枢轴" HorizontalAlignment="Left" Height="34" Margin="91,70,0,0" VerticalAlignment="Top" Width="60" Name="btnPivot" IsEnabled="False" Click="btnPivot_Click" MouseEnter="btnPivot_MouseEnter"/>
+            <RadioButton Content="希尔" HorizontalAlignment="Left" Height="14" Margin="79,230,0,0" VerticalAlignment="Top" Width="50" GroupName="radiobtnWay" x:Name="radiobtnShell" IsEnabled="False" Checked="radiobtnShell_Checked"/>
+            <RadioButton Content="快排" HorizontalAlignment="Left" Height="14" Margin="23,257,0,0" VerticalAlignment="Top" Width="50" GroupName="radiobtnWay" x:Name="radiobtnQuick" IsEnabled="False" Checked="radiobtnQuick_Checked"/>
+            <TextBlock HorizontalAlignment="Left" Height="17" Margin="18,327,0,0" TextWrapping="Wrap" Text="步长 " VerticalAlignment="Top" Width="134" x:Name="textGap" Visibility="Hidden"/>
+            <RadioButton Content="二路归并" HorizontalAlignment="Left" Height="14" Margin="79,257,0,0" VerticalAlignment="Top" Width="73" GroupName="radiobtnWay" x:Name="radiobtnMerge" IsEnabled="False" Checked="radiobtnMerge_Checked"/>
+        </Grid>
+        <Canvas Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="MainCanvas" Background="White"/>
+    </Grid>
+</Page>
