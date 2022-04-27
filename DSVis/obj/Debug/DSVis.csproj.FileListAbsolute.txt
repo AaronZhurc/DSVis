@@ -17,7 +17,6 @@ D:\zrc12\source\DSVis\DSVis\bin\Debug\DSVis.exe.manifest
 D:\zrc12\source\DSVis\DSVis\bin\Debug\DSVis.application
 D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.exe.manifest
 D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.application
-D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.csprojAssemblyReference.cache
 D:\zrc12\source\DSVis\DSVis\bin\Debug\Newtonsoft.Json.dll
 D:\zrc12\source\DSVis\DSVis\bin\Debug\Newtonsoft.Json.xml
 D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.csproj.CopyComplete
@@ -79,3 +78,4 @@ D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Forms\SetNumSysForm.baml
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\NumConverWindow.baml
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\LabyrinthWindow.g.cs
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\LabyrinthWindow.baml
+D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.csprojAssemblyReference.cache

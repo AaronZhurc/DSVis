@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DSVis", "DSVis\DSVis.csproj", "{E0378B18-8BBD-42BD-894A-10AE6C38CCC4}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DSVisSetup", "DSVisSetup\DSVisSetup.vdproj", "{F7726E54-B09B-4B13-9709-26998D77ADBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{E0378B18-8BBD-42BD-894A-10AE6C38CCC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0378B18-8BBD-42BD-894A-10AE6C38CCC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0378B18-8BBD-42BD-894A-10AE6C38CCC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7726E54-B09B-4B13-9709-26998D77ADBD}.Debug|Any CPU.ActiveCfg = Debug
+		{F7726E54-B09B-4B13-9709-26998D77ADBD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,6 @@
             <Button Content="下一步" HorizontalAlignment="Left" Height="32" Margin="54,164,0,0" VerticalAlignment="Top" Width="59" Name="btnNext" IsEnabled="False" Click="btnNext_Click"/>
             <TextBlock HorizontalAlignment="Left" Height="76" Margin="17,83,0,0" TextWrapping="Wrap" Text="清除出去的编号" VerticalAlignment="Top" Width="134" Name="textOut"/>
         </Grid>
-        <Canvas Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="MainCanvas" Background="White"/>
+        <Canvas Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Name="MainCanvas" Background="White" Panel.ZIndex="0"/>
     </Grid>
 </Page>

@@ -38,7 +38,7 @@ namespace DSVis.Windows.Forms {
                     throw new Exception();
                 } else {
                     if (Convert.ToInt32(textBoxNum.Text) > maxCircle) {
-                        MessageBoxResult result = System.Windows.MessageBox.Show("当前设置的数目过大，是否继续", "", MessageBoxButton.OKCancel);
+                        MessageBoxResult result = System.Windows.MessageBox.Show("当前设置的数目过大，可能需要更大的屏幕以完整显示，是否继续", "", MessageBoxButton.OKCancel);
                         switch (result) {
                             case MessageBoxResult.OK:
                                 sendMessage(Convert.ToInt32(textBoxNum.Text), Convert.ToInt32(textBoxStart.Text), Convert.ToInt32(textBoxGap.Text));

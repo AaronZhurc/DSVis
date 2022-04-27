@@ -11,7 +11,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" Name="MainMenu">
+        <Menu Grid.Row="0" Grid.Column="0" Height="20" VerticalAlignment="Top" Width="793" Grid.ColumnSpan="2" Name="MainMenu" Panel.ZIndex="200">
             <MenuItem Header="文件">
                 <MenuItem Header="打开" Name="OpenFile" Click="OpenFile_Click"/>
                 <MenuItem Header="保存" Name="SaveFile" Click="SaveFile_Click"/>
@@ -46,7 +46,7 @@
                 <MenuItem Header="制作信息"/>
             </MenuItem>-->
         </Menu>
-        <Canvas Grid.Column="0" Grid.Row="1" Name="MainCanvas" Background="White" MouseDown="CanvasMouseDown">
+        <Canvas Grid.Column="0" Grid.Row="1" Name="MainCanvas" Background="White" MouseDown="CanvasMouseDown" Panel.ZIndex="0">
             <ContentControl Name="MainPage" Width="{Binding ActualWidth, ElementName=MainCanvas, Mode=OneWay}" Height="{Binding ActualHeight, ElementName=MainCanvas, Mode=OneWay}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         </Canvas>
     </Grid>

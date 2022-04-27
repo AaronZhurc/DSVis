@@ -171,10 +171,19 @@ namespace DSVis.Windows.Pages {
                 ellipse.Name = "v" + i.ToString();
                 this.RegisterName("v" + i, ellipse);
                 TextBlock text = new TextBlock();
-                if (i == 0) {
-                    text.Text = ('A').ToString();
+                if (i < 26) {
+                    if (i == 0) {
+                        text.Text = ('A').ToString();
+                    } else {
+                        text.Text = ((char)('A' +  i)).ToString();
+                    }
                 } else {
-                    text.Text = ((char)('A' + m_num - i)).ToString();
+                    int n = i / 26;
+                    if ((i % 26) == 0) {
+                        text.Text = 'A' + n.ToString();
+                    } else {
+                        text.Text = ((char)('A' + (i % 26))) + n.ToString();
+                    }
                 }
                 text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 Size sizeText = text.DesiredSize;
