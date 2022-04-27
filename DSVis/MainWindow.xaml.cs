@@ -115,7 +115,7 @@ namespace DSVis {
                     } else {
                         if (r > 0 && r <= 25) {
                             m_get[9] = 3;
-                            flag = 1;
+                            //flag = 1;
                         } else if (r > 25 && r <= 180) {
                             m_get[9] = 2;
                         } else {
