@@ -79,10 +79,19 @@ namespace DSVis.Windows.Pages {
                 btnNext.Content = "下一步";
                 Ellipse ellipse = FindName("v" + result[m_count]) as Ellipse;
                 ellipse.Fill = new SolidColorBrush(Colors.PaleVioletRed);
-                if (result[m_count] == 0) {
-                    textOut.Text += 'A'.ToString() + " ";
+                if (result[m_count] < 26) {
+                    if (result[m_count] == 0) {
+                        textOut.Text += ('A').ToString() + " ";
+                    } else {
+                        textOut.Text += ((char)('A' + result[m_count])).ToString() + " ";
+                    }
                 } else {
-                    textOut.Text += ((char)('A' + m_num - result[m_count])).ToString() + " ";
+                    int n = result[m_count] / 26;
+                    if ((result[m_count] % 26) == 0) {
+                        textOut.Text += 'A' + n.ToString() + " ";
+                    } else {
+                        textOut.Text += ((char)('A' + (result[m_count] % 26))) + n.ToString() + " ";
+                    }
                 }
                 m_count++;
             } else {

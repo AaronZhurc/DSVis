@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DSVis.exe" size="891904">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DSVis.exe" size="892416">
       <assemblyIdentity name="DSVis" version="0.0.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3xx0oP1Vz8L+PdFYUrr9nZxnAU3eyI0PAvzyiNBs1iw=</dsig:DigestValue>
+        <dsig:DigestValue>Lycnv6QYSYQ8iMrbWkAStkueD7XZ+m9LKoiWCeUPrCg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
