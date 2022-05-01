@@ -68,6 +68,9 @@ namespace DSVis.Windows.Pages {
                     x = temp.Item1;
                     y = temp.Item2;
                     d = temp.Item3 + 1;
+                } else if(d >= 4 && stack.Count == 0) {
+                    MessageBox.Show("无法到达终点");
+                    btnNext.IsEnabled = false;
                 }
                 ClearStack();
                 DrawStack();
@@ -339,30 +342,34 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            maze = new Maze(jObject["maze"].ToObject<int[,]>(), (int)jObject["x"], (int)jObject["y"]);
-            dataConfirm();
-            mazeX = maze.X + 2;
-            mazeY = maze.Y + 2;
-            m_countDraw = 0;
-            temp.Item1 = 1;
-            temp.Item2 = 1;
-            temp.Item3 = -1;
-            stack.Push(temp);
-            temp = stack.Pop();
-            x = temp.Item1;
-            y = temp.Item2;
-            btnNext.IsEnabled = true;
-            m_flagCtrl = 1;
-            DrawMaze();
-            sr.Close();
-            fs.Close();
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                maze = new Maze(jObject["maze"].ToObject<int[,]>(), (int)jObject["x"], (int)jObject["y"]);
+                dataConfirm();
+                mazeX = maze.X + 2;
+                mazeY = maze.Y + 2;
+                m_countDraw = 0;
+                temp.Item1 = 1;
+                temp.Item2 = 1;
+                temp.Item3 = -1;
+                stack.Push(temp);
+                temp = stack.Pop();
+                x = temp.Item1;
+                y = temp.Item2;
+                btnNext.IsEnabled = true;
+                m_flagCtrl = 1;
+                DrawMaze();
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
+            }
         }
     }
 }

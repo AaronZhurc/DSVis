@@ -624,34 +624,38 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            Recevie(jObject["array"].ToObject<List<int>>());
-            if (jObject["way"].ToString().Equals("Null")) {
-                
-            } else if (jObject["way"].ToString().Equals("Bub")) {
-                radiobtnBub.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Ins")) {
-                radiobtnIns.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Sel")) {
-                radiobtnSel.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Quick")) {
-                radiobtnQuick.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Merge")) {
-                radiobtnMerge.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Shell")) {
-                radiobtnShell.IsChecked = true;
-                if (jObject["gap"] != null) {
-                    GapRecevie(jObject["gap"].ToObject<List<int>>());
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                Recevie(jObject["array"].ToObject<List<int>>());
+                if (jObject["way"].ToString().Equals("Null")) {
+
+                } else if (jObject["way"].ToString().Equals("Bub")) {
+                    radiobtnBub.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Ins")) {
+                    radiobtnIns.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Sel")) {
+                    radiobtnSel.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Quick")) {
+                    radiobtnQuick.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Merge")) {
+                    radiobtnMerge.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Shell")) {
+                    radiobtnShell.IsChecked = true;
+                    if (jObject["gap"] != null) {
+                        GapRecevie(jObject["gap"].ToObject<List<int>>());
+                    }
                 }
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
             }
-            sr.Close();
-            fs.Close();
         }
     }
 }

@@ -444,30 +444,34 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            foreach(JObject jonode in jObject["nodes"]) {
-                TNode<char> node = new TNode<char>((char)jonode["name"], (double)jonode["x"], (double)jonode["y"]);
-                node.Mark = (int)jonode["mark"];
-                node.Height = (int)jonode["height"];
-                node.Ltag = (int)jonode["ltag"];
-                node.Rtag = (int)jonode["rtag"];
-                m_nodes.Add(node);
-            }
-            foreach (JObject jonode in jObject["nodes"]) {
-                if (jonode["parent"].ToString() != "null") {
-                    FindNode((char)jonode["parent"]).SetEdge(FindNode((char)jonode["name"]));
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                foreach (JObject jonode in jObject["nodes"]) {
+                    TNode<char> node = new TNode<char>((char)jonode["name"], (double)jonode["x"], (double)jonode["y"]);
+                    node.Mark = (int)jonode["mark"];
+                    node.Height = (int)jonode["height"];
+                    node.Ltag = (int)jonode["ltag"];
+                    node.Rtag = (int)jonode["rtag"];
+                    m_nodes.Add(node);
                 }
+                foreach (JObject jonode in jObject["nodes"]) {
+                    if (jonode["parent"].ToString() != "null") {
+                        FindNode((char)jonode["parent"]).SetEdge(FindNode((char)jonode["name"]));
+                    }
+                }
+                Receive();
+                btnConfirm_Click(null, null);
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
             }
-            Receive();
-            btnConfirm_Click(null, null);
-            sr.Close();
-            fs.Close();
         }
         public TNode<char> FindNode(char c) {
             foreach(TNode<char> node in m_nodes) {

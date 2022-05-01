@@ -385,28 +385,32 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            foreach (JObject jonode in jObject["nodes"]) {
-                Node<int> node = new Node<int>();
-                node.Data = (int)jonode["data"];
-                node.X = (double)jonode["x"];
-                node.Y = (double)jonode["y"];
-                m_nodes.Add(node);
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                foreach (JObject jonode in jObject["nodes"]) {
+                    Node<int> node = new Node<int>();
+                    node.Data = (int)jonode["data"];
+                    node.X = (double)jonode["x"];
+                    node.Y = (double)jonode["y"];
+                    m_nodes.Add(node);
+                }
+                foreach (JObject jonode in jObject["edges"]) {
+                    Tuple<int, int> edge = new Tuple<int, int>((int)jonode["start"], (int)jonode["end"]);
+                    m_edges.Add(edge);
+                }
+                Receive();
+                btnConfirm_Click(null, null);
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
             }
-            foreach (JObject jonode in jObject["edges"]) {
-                Tuple<int, int> edge = new Tuple<int, int>((int)jonode["start"], (int)jonode["end"]);
-                m_edges.Add(edge);
-            }
-            Receive();
-            btnConfirm_Click(null, null);
-            sr.Close();
-            fs.Close();
         }
         public Node<int> FindNode(int c) {
             foreach (Node<int> node in m_nodes) {

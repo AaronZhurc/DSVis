@@ -408,16 +408,20 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            Recevie(jObject["m_weights"].ToObject<List<int>>());
-            sr.Close();
-            fs.Close();
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                Recevie(jObject["m_weights"].ToObject<List<int>>());
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
+            }
         }
     }
 }

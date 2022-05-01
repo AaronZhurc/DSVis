@@ -1541,27 +1541,31 @@ namespace DSVis.Windows.Pages {
             fs.Close();
         }
         public void Fileopen() {
-            Dispatcher.Invoke(new Action(() => {
-                Height = ActualHeight;
-                Width = ActualWidth;
-            }), DispatcherPriority.Loaded);//等待窗口加载完毕
-            FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
-            StreamReader sr = new StreamReader(fs);
-            JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-            Recevie(jObject["array"].ToObject<List<int>>());
-            if (jObject["way"].ToString().Equals("Null")) {
+            try {
+                Dispatcher.Invoke(new Action(() => {
+                    Height = ActualHeight;
+                    Width = ActualWidth;
+                }), DispatcherPriority.Loaded);//等待窗口加载完毕
+                FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
+                StreamReader sr = new StreamReader(fs);
+                JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
+                Recevie(jObject["array"].ToObject<List<int>>());
+                if (jObject["way"].ToString().Equals("Null")) {
 
-            } else if (jObject["way"].ToString().Equals("SList")) {
-                radiobtnSList.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("DList")) {
-                radiobtnDList.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Stack")) {
-                radiobtnStack.IsChecked = true;
-            } else if (jObject["way"].ToString().Equals("Queue")) {
-                radiobtnQueue.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("SList")) {
+                    radiobtnSList.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("DList")) {
+                    radiobtnDList.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Stack")) {
+                    radiobtnStack.IsChecked = true;
+                } else if (jObject["way"].ToString().Equals("Queue")) {
+                    radiobtnQueue.IsChecked = true;
+                }
+                sr.Close();
+                fs.Close();
+            } catch {
+                MessageBox.Show("请检查文件是否完整");
             }
-            sr.Close();
-            fs.Close();
         }
     }
 }
