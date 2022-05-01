@@ -319,14 +319,14 @@ namespace DSVis.Windows.Pages {
             for (int i = 0; i < maze.X + 2; i++) {
                 JArray array = new JArray();
                 for (int j = 0; j < maze.Y + 2; j++) {
-                    if (i != 0 && j != 1 || i != 1 && j != 1) {
+                    if (i == 0 && j == 1 || i == 1 && j == 1) {
+                        array.Add(-1);
+                    } else {
                         if (maze[i, j] == -1) {
                             array.Add(0);
                         } else {
                             array.Add(maze[i, j]);
                         }
-                    } else {
-                        array.Add(-1);
                     }
                 }
                 jArray.Add(array);
