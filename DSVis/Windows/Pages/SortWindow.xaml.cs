@@ -38,10 +38,12 @@ namespace DSVis.Windows.Pages {
         public DataConfirm dataConfirm;
         public delegate void DataClean();
         public DataClean dataClean;
+        int maxCount50;
         public SortWindow() {
             InitializeComponent();
             this.Height = MainWindowInfo.mainPageHeight;
             this.Width = MainWindowInfo.mainPageWidth;
+            maxCount50 = (int)((this.Width - 30) / 50) + 1;
             if (MainWindowInfo.fileFlag == true) {
                 this.IsEnabled = true;
             } else {
@@ -49,6 +51,7 @@ namespace DSVis.Windows.Pages {
                 form.Show();
                 form.sendMessage = Recevie;
                 form.windowClosed = FormClosed;
+                form.getMaxCount((int)this.Width/30);
                 this.IsEnabled = false;
             }
         }
@@ -91,6 +94,7 @@ namespace DSVis.Windows.Pages {
             form.Show();
             form.sendMessage = Recevie;
             form.windowClosed = FormClosed;
+            form.getMaxCount((int)this.Width / 30);
             this.IsEnabled = false;
         }
 
@@ -318,13 +322,21 @@ namespace DSVis.Windows.Pages {
                 }
                 ellipse.Name = "v" + i;
                 this.RegisterName("v" + i, ellipse);
-                ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 50)) / 2 + 150 + 50 * i - ellipse.Width / 2);
+                if (array.Array.Count <= maxCount50) {
+                    ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 20)) / 2 + 50 * i);
+                } else {
+                    ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width)) / 2 + 30 * i);
+                }
                 ellipse.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - ellipse.Height / 2);
 
                 text.Text = array[i].ToString();
                 text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 Size sizeText = text.DesiredSize;
-                text.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 50)) / 2 + 150 + 50 * i - sizeText.Width / 2);
+                if (array.Array.Count <= maxCount50) {
+                    text.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 20)) / 2 + 50 * i + 15 - sizeText.Width / 2);
+                } else {
+                    text.SetValue(Canvas.LeftProperty, (MainCanvas.ActualWidth - (array.Array.Count * ellipse.Width)) / 2 + 30 * i + 15 - sizeText.Width / 2);
+                }
                 text.SetValue(Canvas.TopProperty, MainCanvas.ActualHeight / 2 - sizeText.Height / 2);
                 text.HorizontalAlignment = HorizontalAlignment.Center;
                 text.VerticalAlignment = VerticalAlignment.Center;
@@ -358,6 +370,7 @@ namespace DSVis.Windows.Pages {
         public void windowchanged() {
             this.Height = MainWindowInfo.mainPageHeight;
             this.Width = MainWindowInfo.mainPageWidth;
+            maxCount50 = (int)((this.Width - 30) / 50) + 1;
             CtrlBg.Height = this.Height;
             MainCanvas.Height = this.Height;
             MainCanvas.Width = this.Width - 170;
@@ -366,9 +379,14 @@ namespace DSVis.Windows.Pages {
                 TextBlock text = (TextBlock)this.FindName("t" + i);
                 text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 Size sizeText = text.DesiredSize;
-                ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 50)) / 2 + 150 + 50 * i - ellipse.Width / 2);
+                if (array.Array.Count <= maxCount50) {
+                    ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 20)) / 2 + 50 * i);
+                    text.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 20)) / 2 + 50 * i + 15 - sizeText.Width / 2);
+                } else {
+                    ellipse.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width)) / 2 + 30 * i);
+                    text.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width)) / 2 + 30 * i + 15 - sizeText.Width / 2);
+                }
                 ellipse.SetValue(Canvas.TopProperty, MainCanvas.Height / 2 - ellipse.Height / 2);
-                text.SetValue(Canvas.LeftProperty, (MainCanvas.Width - (array.Array.Count * ellipse.Width + (array.Array.Count - 1) * 50)) / 2 + 150 + 50 * i - sizeText.Width / 2);
                 text.SetValue(Canvas.TopProperty, MainCanvas.Height / 2 - sizeText.Height / 2);
             }
         }

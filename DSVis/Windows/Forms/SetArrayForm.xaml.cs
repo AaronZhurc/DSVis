@@ -24,15 +24,19 @@ namespace DSVis.Windows.Forms {
         public delegate void WindowClosed();
         public WindowClosed windowClosed;
         List<int> array = new List<int>();
+        private int maxCount = -1;
         public SetArrayForm() {
             InitializeComponent();
             textBox.Focus();
         }
-
+        public void getMaxCount(int max) {
+            maxCount = max;
+        }
         private void Button_Click(object sender, RoutedEventArgs e) {
             //if (!Char.IsDigit(textBox.Text[textBox.Text.Length - 1])) {
                 //textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
             //}
+
             string[] text = Regex.Split(textBox.Text, "[^0-9]+");
             foreach (String t in text) {
                 int n;
@@ -47,8 +51,25 @@ namespace DSVis.Windows.Forms {
             if (array.Count == 0) {
                 MessageBox.Show("请检查输入的数组");
             } else {
-                sendMessage(array);
-                this.Close();
+                if (maxCount == -1) {
+                    sendMessage(array);
+                    this.Close();
+                } else {
+                    if (array.Count > maxCount) {
+                        MessageBoxResult result = System.Windows.MessageBox.Show("当前设置的数目过大，可能需要更大的屏幕以完整显示，是否继续", "", MessageBoxButton.OKCancel);
+                        switch (result) {
+                            case MessageBoxResult.OK:
+                                sendMessage(array);
+                                this.Close();
+                                break;
+                            case MessageBoxResult.Cancel:
+                                break;
+                        }
+                    } else {
+                        sendMessage(array);
+                        this.Close();
+                    }
+                }
             }
         }
 
