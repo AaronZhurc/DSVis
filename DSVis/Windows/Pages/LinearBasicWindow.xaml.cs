@@ -617,7 +617,7 @@ namespace DSVis.Windows.Pages {
                             MainCanvas.Children.Remove((UIElement)this.FindName("lb"));
                             this.UnregisterName("lb");
                         }
-                        array.RemoveAt(array.Count - 1);
+                        array.RemoveAt(OperPosi - 1);
                         Draw();
                         btnPop.IsEnabled = true;
                         btnPush.IsEnabled = true;
@@ -821,7 +821,7 @@ namespace DSVis.Windows.Pages {
                             MainCanvas.Children.Remove((UIElement)this.FindName("ld"));
                             this.UnregisterName("ld");
                         }
-                        array.RemoveAt(array.Count - 1);
+                        array.RemoveAt(OperPosi - 1);
                         Draw();
                         btnPop.IsEnabled = true;
                         btnPush.IsEnabled = true;
