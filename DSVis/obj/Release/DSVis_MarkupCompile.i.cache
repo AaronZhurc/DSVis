@@ -10,11 +10,11 @@ none
 false
 TRACE
 D:\zrc12\source\DSVis\DSVis\App.xaml
-51659407286
+301458343093
 
-12-28271731
-151397803362
-SubWindow\GraphTraWindow.xaml;MainWindow.xaml;SubWindow\SetWeightForm.xaml;SubWindow\MCSTWindow.xaml;SubWindow\SPath.xaml;
+40435805117
+162013089101
+Windows\Forms\SetExpForm.xaml;Windows\Forms\SetNumSysForm.xaml;Windows\Forms\SetStringForm.xaml;Windows\Pages\BSTWindow.xaml;Windows\Pages\CriticalPathWindows.xaml;Windows\Pages\ExpConverseWindow.xaml;Windows\Pages\GraphTraWindow.xaml;MainWindow.xaml;Windows\Pages\HeapSortWindow.xaml;Windows\Pages\HuffmanWindow.xaml;Windows\Pages\JosephusWindow.xaml;Windows\Pages\KMPWindow.xaml;Windows\Pages\LabyrinthWindow.xaml;Windows\Pages\LinearBasicWindow.xaml;Windows\Pages\NumConverWindow.xaml;Windows\Pages\SearchWindow.xaml;Windows\Forms\SetArrayForm.xaml;Windows\Forms\SetBlockForm.xaml;Windows\Forms\SetDeleteForm.xaml;Windows\Forms\SetGapForm.xaml;Windows\Forms\SetWeightForm.xaml;Windows\Pages\MCSTWindow.xaml;Windows\Forms\SetInsertForm.xaml;Windows\Forms\SetJosephusForm.xaml;Windows\Forms\SetPushForm.xaml;Windows\Forms\SetTreeWeightForm.xaml;Windows\Pages\SortWindow.xaml;Windows\Pages\SPathWindow.xaml;Windows\Pages\TopoSortWindow.xaml;Windows\Pages\TreeTraWindow.xaml;
 
 True
 

@@ -208,7 +208,7 @@ namespace DSVis.Windows.Pages {
                 form.windowClosed = FormClosed;
                 radiobtnSList.IsEnabled = false;
                 radiobtnDList.IsEnabled = false;
-                radiobtnStack.IsEnabled = false;
+                radiobtnQueue.IsEnabled = false;
             } else if (radiobtnQueue.IsChecked == true) {
                 this.IsEnabled = false;
                 SetPushForm form = new SetPushForm();
@@ -217,7 +217,7 @@ namespace DSVis.Windows.Pages {
                 form.windowClosed = FormClosed;
                 radiobtnSList.IsEnabled = false;
                 radiobtnDList.IsEnabled = false;
-                radiobtnQueue.IsEnabled = false;
+                radiobtnStack.IsEnabled = false;
             } else {
                 MessageBox.Show("请选择类型");
             }

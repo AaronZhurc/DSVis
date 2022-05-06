@@ -1,8 +1,33 @@
 ﻿D:\zrc12\source\DSVis\DSVis\obj\Release\GeneratedInternalTypeHelper.g.cs
 
-FD:\zrc12\source\DSVis\DSVis\SubWindow\GraphTraWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetExpForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetNumSysForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetStringForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\BSTWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\CriticalPathWindows.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\ExpConverseWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\GraphTraWindow.xaml;;
 FD:\zrc12\source\DSVis\DSVis\MainWindow.xaml;;
-FD:\zrc12\source\DSVis\DSVis\SubWindow\SetWeightForm.xaml;;
-FD:\zrc12\source\DSVis\DSVis\SubWindow\MCSTWindow.xaml;;
-FD:\zrc12\source\DSVis\DSVis\SubWindow\SPath.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\HeapSortWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\HuffmanWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\JosephusWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\KMPWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\LabyrinthWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\LinearBasicWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\NumConverWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\SearchWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetArrayForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetBlockForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetDeleteForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetGapForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetWeightForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\MCSTWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetInsertForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetJosephusForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetPushForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Forms\SetTreeWeightForm.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\SortWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\SPathWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\TopoSortWindow.xaml;;
+FD:\zrc12\source\DSVis\DSVis\Windows\Pages\TreeTraWindow.xaml;;
 
