@@ -58,6 +58,7 @@ namespace DSVis.Windows.Pages {
             this.IsEnabled = false;
         }
         public void Recevie(string mainStr, string pattenStr) {
+            Clear();
             dataConfirm();
             this.mainStr = mainStr;
             this.pattenStr = pattenStr;
@@ -180,30 +181,34 @@ namespace DSVis.Windows.Pages {
             }
         }
         private void Clear() {
-            for (int i = 0; i < pattenStr.Length; i++) {
-                MainCanvas.Children.Remove((UIElement)this.FindName("v" + i));
-                this.UnregisterName("v" + i);
-                MainCanvas.Children.Remove((UIElement)this.FindName("t" + i));
-                this.UnregisterName("t" + i);
-                if (this.FindName("vd" + i) != null) {
-                    MainCanvas.Children.Remove((UIElement)this.FindName("vd" + i));
-                    this.UnregisterName("vd" + i);
-                    MainCanvas.Children.Remove((UIElement)this.FindName("td" + i));
-                    this.UnregisterName("td" + i);
-                }
-                if (this.FindName("vn" + i) != null) {
-                    MainCanvas.Children.Remove((UIElement)this.FindName("vn" + i));
-                    this.UnregisterName("vn" + i);
-                    MainCanvas.Children.Remove((UIElement)this.FindName("tn" + i));
-                    this.UnregisterName("tn" + i);
+            if (pattenStr != null) {
+                for (int i = 0; i < pattenStr.Length; i++) {
+                    MainCanvas.Children.Remove((UIElement)this.FindName("v" + i));
+                    this.UnregisterName("v" + i);
+                    MainCanvas.Children.Remove((UIElement)this.FindName("t" + i));
+                    this.UnregisterName("t" + i);
+                    if (this.FindName("vd" + i) != null) {
+                        MainCanvas.Children.Remove((UIElement)this.FindName("vd" + i));
+                        this.UnregisterName("vd" + i);
+                        MainCanvas.Children.Remove((UIElement)this.FindName("td" + i));
+                        this.UnregisterName("td" + i);
+                    }
+                    if (this.FindName("vn" + i) != null) {
+                        MainCanvas.Children.Remove((UIElement)this.FindName("vn" + i));
+                        this.UnregisterName("vn" + i);
+                        MainCanvas.Children.Remove((UIElement)this.FindName("tn" + i));
+                        this.UnregisterName("tn" + i);
+                    }
                 }
             }
-            for (int i = 0; i < mainStr.Length; i++) {
-                if (this.FindName("vm" + i) != null) {
-                    MainCanvas.Children.Remove((UIElement)this.FindName("vm" + i));
-                    this.UnregisterName("vm" + i);
-                    MainCanvas.Children.Remove((UIElement)this.FindName("tm" + i));
-                    this.UnregisterName("tm" + i);
+            if (mainStr != null) {
+                for (int i = 0; i < mainStr.Length; i++) {
+                    if (this.FindName("vm" + i) != null) {
+                        MainCanvas.Children.Remove((UIElement)this.FindName("vm" + i));
+                        this.UnregisterName("vm" + i);
+                        MainCanvas.Children.Remove((UIElement)this.FindName("tm" + i));
+                        this.UnregisterName("tm" + i);
+                    }
                 }
             }
         }
@@ -400,7 +405,11 @@ namespace DSVis.Windows.Pages {
                         if (m_indexFlag == false) {
                             ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                         } else {
-                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                            if (m_indexi <= mainStr.Length) {
+                                ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                            } else {
+                                ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
+                            }
                         }
                     } else {
                         ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
@@ -427,7 +436,11 @@ namespace DSVis.Windows.Pages {
                         if (m_indexFlag == false) {
                             ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                         } else {
-                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                            if (m_indexi <= mainStr.Length) {
+                                ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                            } else {
+                                ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
+                            }
                         }
                     } else {
                         ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
@@ -469,13 +482,19 @@ namespace DSVis.Windows.Pages {
         }
 
         private void Index() {
-            if (m_indexj == 0 || mainStr[m_indexi - 1] == pattenStr[m_indexj - 1]) {
-                m_indexi++;
-                m_indexj++;
-            } else {
-                m_indexj = next[m_indexj];
+            if (m_indexi <= mainStr.Length && m_indexj <= pattenStr.Length) {
+                if (m_indexj == 0 || mainStr[m_indexi - 1] == pattenStr[m_indexj - 1]) {
+                    m_indexi++;
+                    m_indexj++;
+                } else {
+                    m_indexj = next[m_indexj];
+                }
             }
             if (m_indexj > pattenStr.Length) {
+                m_indexFlag = true;
+            }
+            if(m_indexi > mainStr.Length) {
+                MessageBox.Show("匹配失败，主串不包含此模式串");
                 m_indexFlag = true;
             }
         }
