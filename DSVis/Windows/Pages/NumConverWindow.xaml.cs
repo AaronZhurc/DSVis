@@ -58,6 +58,7 @@ namespace DSVis.Windows.Pages {
 
         public void Recevie(int num,int sys) {
             dataConfirm();
+            Clear();
             m_num = num;
             m_quot = num;
             m_sys = sys;
@@ -105,6 +106,9 @@ namespace DSVis.Windows.Pages {
                 Clear();
                 Draw();
             } else if (m_flagCtrl == 2) {
+                textDividend.Text = "";
+                textRemainder.Text = "";
+                textQuotus.Text = "";
                 if (m_sys != 1) {
                     if (stack.Count != 0) {
                         int quot = stack.Pop();

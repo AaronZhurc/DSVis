@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DSVis.Windows.Forms"
         mc:Ignorable="d"
-        Title="SetNumSysForm" Height="176.644" Width="280" Topmost="True" Closed="MainWindow_Closed" ResizeMode="NoResize">
+        Title="进制转换设置" Height="176.644" Width="280" Topmost="True" Closed="MainWindow_Closed" ResizeMode="NoResize">
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="30" Margin="106,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" Name="textBoxNum" RenderTransformOrigin="0.489,0.118" FontSize="16" VerticalContentAlignment="Center" InputMethod.IsInputMethodEnabled="False" PreviewTextInput="textBoxNum_PreviewTextInput"/>
         <Label Content="转换数字" HorizontalAlignment="Left" Height="30" Margin="28,15,0,0" VerticalAlignment="Top" Width="46"/>

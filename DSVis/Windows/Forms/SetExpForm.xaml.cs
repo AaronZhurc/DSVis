@@ -27,8 +27,12 @@ namespace DSVis.Windows.Forms {
         }
         private void Button_Click(object sender, RoutedEventArgs e) {
             if (textBox.Text != null && textBox.Text != "") {
-                sendMessage(textBox.Text);
-                this.Close();
+                if (textBox.Text.Last<char>() == ')' || textBox.Text.Last<char>() == '）' || char.IsDigit(textBox.Text.Last<char>())) {
+                    sendMessage(textBox.Text);
+                    this.Close();
+                } else {
+                    MessageBox.Show("请检测输入的表达式是否正确");
+                }
             } else {
                 MessageBox.Show("请检测输入的表达式是否正确");
             }
