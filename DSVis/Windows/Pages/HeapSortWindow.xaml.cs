@@ -291,7 +291,7 @@ namespace DSVis.Windows.Pages {
             for (int i = 0; i < m_weights.Count; i++) {
                 jArray.Add(m_weights[i]);
             }
-            jObject["m_weights"] = jArray;
+            jObject["weights"] = jArray;
             sw.Write(jObject);
             sw.Close();
             fs.Close();
@@ -319,7 +319,7 @@ namespace DSVis.Windows.Pages {
                 FileStream fs = new FileStream(MainWindowInfo.fileLocation, FileMode.Open);
                 StreamReader sr = new StreamReader(fs);
                 JObject jObject = (JObject)JsonConvert.DeserializeObject(sr.ReadToEnd());
-                Recevie(jObject["m_weights"].ToObject<List<int>>());
+                Recevie(jObject["weights"].ToObject<List<int>>());
                 sr.Close();
                 fs.Close();
             } catch {
