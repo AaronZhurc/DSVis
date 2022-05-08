@@ -194,7 +194,7 @@ namespace DSVis.Windows.Pages {
         private void btnNext_Click(object sender, RoutedEventArgs e) {
             if (radiobtnMax.IsChecked == true) {
                 if (!m_tree.IsMaxHeap()) {
-                    radiobtnMin.IsChecked = false;
+                    radiobtnMin.IsEnabled = false;
                     m_tree.LevelOrder();
                     for(int i = m_tree.VertexVisit.Count - 1; i > 0; i--) {
                         TNode<int> node = m_tree.VertexVisit[i] as TNode<int>;
@@ -215,7 +215,7 @@ namespace DSVis.Windows.Pages {
                         }
                     }
                 } else {
-                    radiobtnMin.IsChecked = true;
+                    radiobtnMin.IsEnabled = true;
                     m_node = -1;
                     m_parent = -1;
                     cleanCanvas();
@@ -224,7 +224,7 @@ namespace DSVis.Windows.Pages {
                 }
             } else if (radiobtnMin.IsChecked == true) {
                 if (!m_tree.IsMinHeap()) {
-                    radiobtnMax.IsChecked = false;
+                    radiobtnMax.IsEnabled = false;
                     m_tree.LevelOrder();
                     for (int i = m_tree.VertexVisit.Count - 1; i > 0; i--) {
                         TNode<int> node = m_tree.VertexVisit[i] as TNode<int>;
@@ -245,7 +245,7 @@ namespace DSVis.Windows.Pages {
                         }
                     }
                 } else {
-                    radiobtnMax.IsChecked = true;
+                    radiobtnMax.IsEnabled = true;
                     m_node = -1;
                     m_parent = -1;
                     cleanCanvas();

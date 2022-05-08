@@ -33,7 +33,7 @@ namespace DSVis.Windows.Pages {
         List<int> quickHigh = new List<int>();
         List<int> quickLow = new List<int>();
         List<bool> quickDir = new List<bool>();
-        bool quickFlag = false;
+        bool quickFlag = false, endFlag = false;
         public delegate void DataConfirm();
         public DataConfirm dataConfirm;
         public delegate void DataClean();
@@ -133,6 +133,7 @@ namespace DSVis.Windows.Pages {
                     array.SelectionSort();
                     Clear();
                     Draw();
+                    m_countSort++;
                 } else if (radiobtnShell.IsChecked == true) {
                     btnNext.Content = "下一步";
                     radiobtnBub.IsEnabled = false;
@@ -214,26 +215,34 @@ namespace DSVis.Windows.Pages {
                     MessageBox.Show("请先选择排序方式");
                 }
             } else if (array.Over == true) {
-                btnNext.Content = "重新排序";
-                radiobtnBub.IsEnabled = true;
-                radiobtnIns.IsEnabled = true;
-                radiobtnSel.IsEnabled = true;
-                radiobtnShell.IsEnabled = true;
-                radiobtnQuick.IsEnabled = true;
-                btnSet.IsEnabled = true;
-                m_countSort = 0;
-                m_countMerge = 2;
-                if (radiobtnShell.IsChecked == true) {
-                    btnGap.IsEnabled = true;
-                } else if (radiobtnQuick.IsChecked == true) {
-                    btnPivot.IsEnabled = true;
+                if (endFlag == false) {
+                    endFlag = true;
+                    Clear();
+                    Draw();
+                } else {
+                    endFlag = false;
+                    btnNext.Content = "重新排序";
+                    radiobtnBub.IsEnabled = true;
+                    radiobtnIns.IsEnabled = true;
+                    radiobtnSel.IsEnabled = true;
+                    radiobtnShell.IsEnabled = true;
+                    radiobtnQuick.IsEnabled = true;
+                    radiobtnMerge.IsEnabled = true;
+                    btnSet.IsEnabled = true;
+                    m_countSort = 0;
+                    m_countMerge = 2;
+                    if (radiobtnShell.IsChecked == true) {
+                        btnGap.IsEnabled = true;
+                    } else if (radiobtnQuick.IsChecked == true) {
+                        btnPivot.IsEnabled = true;
+                    }
+                    quickSubArray.Clear();
+                    quickSorted.Clear();
+                    m_countPivot = 0;
+                    array.Clear();
+                    Clear();
+                    Draw();
                 }
-                quickSubArray.Clear();
-                quickSorted.Clear();
-                m_countPivot = 0;
-                array.Clear();
-                Clear();
-                Draw();
             } 
         }
 
@@ -243,82 +252,89 @@ namespace DSVis.Windows.Pages {
                 TextBlock text = new TextBlock();
                 ellipse.Width = 30;
                 ellipse.Height = 30;
-                if (radiobtnIns.IsChecked == true) {
-                    if (i <= array.Bloop)
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                    else
-                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                    if (i == array.Swapa)
-                        ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
-                } else if (radiobtnBub.IsChecked == true) {
-                    if (i >= array.Array.Count - array.Bloop)
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                    else
-                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                    if (i == array.Swapa || i == array.Swapb)
-                        ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
-                } else if (radiobtnSel.IsChecked == true) {
-                    if (array.Sorting[i] == 1) {
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                    }
-                    if (i == array.Swapa || i == array.Swapb) {
-                        ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
-                    } else if (array.Sorting[i] != 1) {
-                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                    }
-                } else if (radiobtnShell.IsChecked == true) {
-                    if (gap[m_countSort] != 1) {
-                        if ((i - m_countGap) % gap[m_countSort] == 0) {
+                if (array.Over == false) {
+                    if (radiobtnIns.IsChecked == true) {
+                        if (i <= array.Bloop)
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        else
+                            ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                        if (i == array.Swapa)
+                            ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
+                    } else if (radiobtnBub.IsChecked == true) {
+                        if (i >= array.Array.Count - array.Bloop)
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        else
+                            ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                        if (i == array.Swapa || i == array.Swapb)
+                            ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
+                    } else if (radiobtnSel.IsChecked == true) {
+                        if (i < m_countSort) {
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        } else if (i == m_countSort) {
                             ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                         } else {
                             ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
                         }
-                    } else {
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                    }
-                } else if (radiobtnQuick.IsChecked == true) {
-                    ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                    if (array.Over == true) {
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                    }
-                    for (int j = 0; j < quickHigh.Count; j++) {
-                        if (quickSubArray.Count != 0) {
-                            if (i >= quickSubArray[j].SubList[0] && i <= quickSubArray[j].SubList[quickSubArray[j].SubList.Count - 1]) {
-                                if (quickHigh[j] == quickLow[j]) {
-                                    if (quickLow[j] == i) {
-                                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                                        quickSorted.Add(i);
-                                    } else {
-                                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                                    }
-                                } else {//可能要大改动
-                                    if ((quickDir[j] == true && quickHigh[j] == i) || (quickDir[j] == false && quickLow[j] == i)) {
-                                        ellipse.Visibility = Visibility.Hidden;
-                                        text.Visibility = Visibility.Hidden;
-                                    } else if ((quickDir[j] == true && quickLow[j] == i) || (quickDir[j] == false && quickHigh[j] == i)) {
-                                        ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
-                                    } else {
-                                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
-                                    }
-                                }
-                            } else if (quickSorted.Contains(i)) {
-                                ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                    } else if (radiobtnShell.IsChecked == true) {
+                        if (gap[m_countSort] != 1) {
+                            if ((i - m_countGap) % gap[m_countSort] == 0) {
+                                ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                             } else {
                                 ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
                             }
+                        } else {
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
                         }
-                    }
-                } else if (radiobtnMerge.IsChecked == true) {
-                    if (i / m_countMerge % 2 == 0) {
+                    } else if (radiobtnQuick.IsChecked == true) {
                         ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                        if (array.Over == true) {
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        }
+                        for (int j = 0; j < quickHigh.Count; j++) {
+                            if (quickSubArray.Count != 0) {
+                                if (i >= quickSubArray[j].SubList[0] && i <= quickSubArray[j].SubList[quickSubArray[j].SubList.Count - 1]) {
+                                    if (quickHigh[j] == quickLow[j]) {
+                                        if (quickLow[j] == i) {
+                                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                                            quickSorted.Add(i);
+                                        } else {
+                                            ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                                        }
+                                    } else {//可能要大改动
+                                        if ((quickDir[j] == true && quickHigh[j] == i) || (quickDir[j] == false && quickLow[j] == i)) {
+                                            ellipse.Visibility = Visibility.Hidden;
+                                            text.Visibility = Visibility.Hidden;
+                                        } else if ((quickDir[j] == true && quickLow[j] == i) || (quickDir[j] == false && quickHigh[j] == i)) {
+                                            ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
+                                        } else {
+                                            ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                                        }
+                                    }
+                                } else if (quickSorted.Contains(i)) {
+                                    ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                                } else {
+                                    ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                                }
+                            }
+                        }
+                    } else if (radiobtnMerge.IsChecked == true) {
+                        if (i / m_countMerge % 2 == 0) {
+                            ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                        } else {
+                            ellipse.Fill = new SolidColorBrush(Colors.DeepSkyBlue);
+                        }
+                        if (array.Over == true) {
+                            ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        }
                     } else {
-                        ellipse.Fill = new SolidColorBrush(Colors.DeepSkyBlue);
-                    }
-                    if (array.Over == true) {
-                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
                     }
                 } else {
-                    ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                    if (endFlag == false) {
+                        ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
+                    } else {
+                        ellipse.Fill = new SolidColorBrush(Colors.CornflowerBlue);
+                    }
                 }
                 ellipse.Name = "v" + i;
                 this.RegisterName("v" + i, ellipse);
