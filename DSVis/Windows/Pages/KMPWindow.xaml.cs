@@ -178,7 +178,7 @@ namespace DSVis.Windows.Pages {
                 radiobtnNext.IsEnabled = true;
                 radiobtnNextval.IsEnabled = true;
                 listSame.Clear();
-            }
+            } 
         }
         private void Clear() {
             if (pattenStr != null) {
@@ -405,9 +405,9 @@ namespace DSVis.Windows.Pages {
                         if (m_indexFlag == false) {
                             ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                         } else {
-                            if (m_indexi <= mainStr.Length) {
+                            if (m_indexj > pattenStr.Length) {
                                 ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                            } else {
+                            } else if (m_indexi > mainStr.Length) {
                                 ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                             }
                         }
@@ -436,9 +436,9 @@ namespace DSVis.Windows.Pages {
                         if (m_indexFlag == false) {
                             ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                         } else {
-                            if (m_indexi <= mainStr.Length) {
+                            if (m_indexj > pattenStr.Length) {
                                 ellipse.Fill = new SolidColorBrush(Colors.DarkSeaGreen);
-                            } else {
+                            } else if (m_indexi > mainStr.Length) {
                                 ellipse.Fill = new SolidColorBrush(Colors.IndianRed);
                             }
                         }
@@ -492,9 +492,8 @@ namespace DSVis.Windows.Pages {
             }
             if (m_indexj > pattenStr.Length) {
                 m_indexFlag = true;
-            }
-            if(m_indexi > mainStr.Length) {
-                MessageBox.Show("匹配失败，主串不包含此模式串");
+            } else if (m_indexi > mainStr.Length) {
+                MessageBox.Show("匹配失败，主串不包含此模式串"); 
                 m_indexFlag = true;
             }
         }
