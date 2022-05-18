@@ -80,7 +80,11 @@ namespace DSVis.Windows.Pages {
                 Ellipse ellipse = FindName("v" + result[m_count]) as Ellipse;
                 ellipse.Fill = new SolidColorBrush(Colors.PaleVioletRed);
                 if (m_num - result[m_count] < 26) {
-                    textOut.Text += ((char)('A' + (m_num - result[m_count]))).ToString() + " ";
+                    if (result[m_count] == 0) {
+                        textOut.Text += ('A').ToString() + " ";
+                    } else {
+                        textOut.Text += ((char)('A' + (m_num - result[m_count]))).ToString() + " ";
+                    }
                 } else {
                     int n = (m_num - result[m_count]) / 26;
                     if (result[m_count] == 0) {
@@ -179,7 +183,11 @@ namespace DSVis.Windows.Pages {
                 this.RegisterName("v" + i, ellipse);
                 TextBlock text = new TextBlock();
                 if (m_num - i < 26) {
-                    text.Text = ((char)('A' + (m_num - i))).ToString();
+                    if (i == 0) {
+                        text.Text = ('A').ToString();
+                    } else {
+                        text.Text = ((char)('A' + (m_num - i))).ToString();
+                    }
                 } else {
                     int n = (m_num - i) / 26;
                     if (i == 0) {

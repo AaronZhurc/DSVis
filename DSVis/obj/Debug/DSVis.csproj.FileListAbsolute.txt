@@ -78,3 +78,4 @@ D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Forms\SetNumSysForm.baml
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\NumConverWindow.baml
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\LabyrinthWindow.g.cs
 D:\zrc12\source\DSVis\DSVis\obj\Debug\Windows\Pages\LabyrinthWindow.baml
+D:\zrc12\source\DSVis\DSVis\obj\Debug\DSVis.csprojAssemblyReference.cache
