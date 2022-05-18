@@ -79,18 +79,16 @@ namespace DSVis.Windows.Pages {
                 btnNext.Content = "下一步";
                 Ellipse ellipse = FindName("v" + result[m_count]) as Ellipse;
                 ellipse.Fill = new SolidColorBrush(Colors.PaleVioletRed);
-                if (result[m_count] < 26) {
+                if (m_num - result[m_count] < 26) {
+                    textOut.Text += ((char)('A' + (m_num - result[m_count]))).ToString() + " ";
+                } else {
+                    int n = (m_num - result[m_count]) / 26;
                     if (result[m_count] == 0) {
                         textOut.Text += ('A').ToString() + " ";
-                    } else {
-                        textOut.Text += ((char)('A' + result[m_count])).ToString() + " ";
-                    }
-                } else {
-                    int n = result[m_count] / 26;
-                    if ((result[m_count] % 26) == 0) {
+                    } else if (((m_num - result[m_count]) % 26) == 0) {
                         textOut.Text += 'A' + n.ToString() + " ";
                     } else {
-                        textOut.Text += ((char)('A' + (result[m_count] % 26))) + n.ToString() + " ";
+                        textOut.Text += ((char)('A' + ((m_num - result[m_count]) % 26))) + n.ToString() + " ";
                     }
                 }
                 m_count++;
@@ -180,18 +178,16 @@ namespace DSVis.Windows.Pages {
                 ellipse.Name = "v" + i.ToString();
                 this.RegisterName("v" + i, ellipse);
                 TextBlock text = new TextBlock();
-                if (i < 26) {
+                if (m_num - i < 26) {
+                    text.Text = ((char)('A' + (m_num - i))).ToString();
+                } else {
+                    int n = (m_num - i) / 26;
                     if (i == 0) {
                         text.Text = ('A').ToString();
-                    } else {
-                        text.Text = ((char)('A' +  i)).ToString();
-                    }
-                } else {
-                    int n = i / 26;
-                    if ((i % 26) == 0) {
+                    } else if (((m_num - i) % 26) == 0) {
                         text.Text = 'A' + n.ToString();
                     } else {
-                        text.Text = ((char)('A' + (i % 26))) + n.ToString();
+                        text.Text = ((char)('A' + ((m_num - i) % 26))) + n.ToString();
                     }
                 }
                 text.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
